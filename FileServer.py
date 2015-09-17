@@ -5,7 +5,7 @@ s = socket.socket()         # Create a socket object
 #port = 12345                 # Reserve a port for your service.
 host, port = "localhost", 8888
 s.bind((host, port))        # Bind to the port
-f = open('torecv.png','wb')
+f = open('Recieve.txt','wb')
 s.listen(5)                 # Now wait for client connection.
 while True:
     c, addr = s.accept()     # Establish connection with client.
@@ -19,4 +19,4 @@ while True:
     f.close()
     print "Done Receiving"
     c.send('Thank you for connecting')
-    c.close()                # Close the connectio
+    c.close()                # Close the connection
