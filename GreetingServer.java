@@ -35,7 +35,7 @@ class GreetingServer{
 			clientSentence = inFromClient.readLine();             
 			System.out.println("Received: " + clientSentence);             
 			capitalizedSentence = clientSentence.toUpperCase() + " from "+Port+'\n';             
-			outToClient.writeBytes(capitalizedSentence);          
+			outToClient.writeBytes(capitalizedSentence);         
 		}       
 	}
 }
