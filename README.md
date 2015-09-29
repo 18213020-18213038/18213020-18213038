@@ -14,3 +14,8 @@ Tugas 2 dengan nama file :
 1. FileServer.py
 2. FileClient.py
 memakai python
+
+Tugas 3 dengan nama file :
+1. Main.java
+2. HTMLLinkExtractor.java
+memakai java
