@@ -16,9 +16,11 @@ Tugas 2 dengan nama file :
 memakai python
 
 Tugas 3 dengan nama file :
-1. Main.java
-2. HTMLLinkExtractor.java
-memakai java
+1. Dldrlinks.py
+2. Crawling.py
+3. Crawled.py
+4. Dldrcrawl.py
+memakai python
 
 Tugas 4 dengan nama file :
 1. rsync.sh
