@@ -19,3 +19,8 @@ Tugas 3 dengan nama file :
 1. Main.java
 2. HTMLLinkExtractor.java
 memakai java
+
+Tugas 4 dengan nama file :
+1. rsync.sh
+2. wget.sh
+memakai shell scripting
