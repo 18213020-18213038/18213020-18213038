@@ -1,15 +1,15 @@
 /* Vibration Sensor ~ www.boarduino.blogspot.com */
-const int vibrationSensorPin = 2; // Vibration Sensor di hubungkan ke Pin 2
+const int vibrationSensorPin = 8; // Vibration Sensor di hubungkan ke Pin 2
 int vibrationSensorState = 0; // Status saat pertama mulai = 0
 int indikatorHijau = 3; // Set Pin 3 untuk LED Hijau
-int indikatorMerah = 4; // Set Pin 4 untuk LED Merah
-int speakerPin = 5; // Set Pin 5 untuk Buzzer
+int indikatorBiru = 4; // Set Pin 4 untuk LED Biru
+#define speakerPin 5 // Set Pin 5 untuk Buzzer
 
-//Melody
-int length = 15; // the number of notes
+///Melody
+/*int length = 15; // the number of notes
 char notes[] = "ccggaagffeeddc "; // a space represents a rest
 int beats[] = { 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 4 };
-int tempo = 300;
+int tempo = 300;*/
 
 
 void playTone(int tone, int duration) {
@@ -37,19 +37,19 @@ void setup() {
   Serial.begin(9600);
   pinMode(vibrationSensorPin, INPUT); // Jadikan Vibration sensor sebagai input
   pinMode(indikatorHijau, OUTPUT); // Jadikan indikatorHijau sebagai Output
-  pinMode(indikatorMerah, OUTPUT); // Jadiikan indikatorMerah sebagai Output
+  pinMode(indikatorBiru, OUTPUT); // Jadiikan indikatorBiru sebagai Output
   pinMode(speakerPin, OUTPUT); // Jadikan indikatorBuzzer sebagai Output
 }
 
 void loop() {
   vibrationSensorState = digitalRead(vibrationSensorPin);
   if (vibrationSensorState == HIGH) { // Jika ada getaran di sensor = HIGH
-    Serial.println("Ada Pergetaran!");
+    Serial.println("Terjadi Gempa!! Cepat berlindung");
     digitalWrite(indikatorHijau, HIGH); // Aktifkan indikator Hijau
-    digitalWrite(indikatorMerah, LOW); // Matikan indikator Merah
+    digitalWrite(indikatorBiru, LOW); // Matikan indikator Biru
     //digitalWrite(speakerPin, HIGH); // // Aktifkan indikator Buzzer
     //Melody
-    for (int i = 0; i < length; i++) {
+    /*for (int i = 0; i < length; i++) {
     if (notes[i] == ' ') {
       delay(beats[i] * tempo); // rest
     } else {
@@ -59,16 +59,28 @@ void loop() {
     // pause between notes
     delay(tempo / 2);
     }
-    delay(1000); // Tunda 8 detik
+    delay(1000); // Tunda 8 detik*/
+    digitalWrite (speakerPin,LOW);
+    delay (500);
+    digitalWrite (speakerPin,HIGH);
+    delay (500);
+    digitalWrite (speakerPin,LOW);
+    delay (250);
+    digitalWrite (speakerPin,HIGH);
+    delay (250);
+    digitalWrite (speakerPin,LOW);
+    delay (250);
+    digitalWrite (speakerPin,HIGH);
+    delay (500);
     digitalWrite(indikatorHijau, LOW); // Matikan indikator Hijau
-    digitalWrite(indikatorMerah, HIGH); // Aktifkan indikator Merah
+    digitalWrite(indikatorBiru, HIGH); // Aktifkan indikator Biru
     delay(100); // Delay untuk menunggu getaran selanjutnya
   }  
   else {
     digitalWrite(indikatorHijau, LOW); // Matikan indikator Hijau
-    digitalWrite(indikatorMerah, HIGH); // Aktifkan indikator Merah
+    digitalWrite(indikatorBiru, HIGH); // Aktifkan indikator Biru
     digitalWrite(speakerPin, LOW); // Matikan indikator Buzzer
-    Serial.println("Menunggu getaran...");
+    Serial.println("Keadaan standby...");
     delay(1000);
   }
 }
